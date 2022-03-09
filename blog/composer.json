@@ -1,0 +1,62 @@
+{
+    "name": "laravel/laravel",
+    "type": "project",
+    "description": "The Laravel Framework.",
+    "keywords": ["framework", "laravel"],
+    "license": "MIT",
+    "require": {
+        "php": "^7.3|^8.0",
+        "../Laravel-RESTful-api/vendor/fruitcake/laravel-cors": "^2.0",
+        "../Laravel-RESTful-api/vendor/guzzlehttp/guzzle": "^7.0.1",
+        "../Laravel-RESTful-api/vendor/laravel/framework": "^8.75",
+        "../Laravel-RESTful-api/vendor/laravel/sanctum": "^2.11",
+        "../Laravel-RESTful-api/vendor/laravel/tinker": "^2.5"
+    },
+    "require-dev": {
+        "../Laravel-RESTful-api/vendor/facade/ignition": "^2.5",
+        "../Laravel-RESTful-api/vendor/fakerphp/faker": "^1.9.1",
+        "../Laravel-RESTful-api/vendor/laravel/sail": "^1.0.1",
+        "../Laravel-RESTful-api/vendor/mockery/mockery": "^1.4.4",
+        "../Laravel-RESTful-api/vendor/nunomaduro/collision": "^5.10",
+        "../Laravel-RESTful-api/vendor/phpunit/phpunit": "^9.5.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
